@@ -1,0 +1,13 @@
+/* Background styles */
+body {
+  background-color: transparent !important;
+  background-image: url('./assets/background.jpg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  min-height: 100vh !important;
+  position: relative !important;
+}
+
+/* Removed dark overlay to show background image directly */

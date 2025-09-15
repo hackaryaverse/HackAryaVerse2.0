@@ -1,0 +1,746 @@
+/* Tech Theme CSS - Modern Hackathon Website Styling */
+
+/* Import Futuristic Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables for Tech Theme */
+:root {
+  /* Dark Base Colors */
+  --tech-dark-bg: #0a0a0f;
+  --tech-navy: #0f1419;
+  --tech-deep-navy: #1a1f2e;
+  --tech-black: #000000;
+  
+  /* Primary Neon Colors */
+  --tech-electric-blue: #00d4ff;
+  --tech-neon-cyan: #00ffff;
+  --tech-bright-purple: #8b5cf6;
+  --tech-violet: #7c3aed;
+  
+  /* Accent Colors */
+  --tech-neon-orange: #ff6b35;
+  --tech-neon-green: #00ff88;
+  --tech-hot-pink: #ff0080;
+  
+  /* Text Colors */
+  --tech-white: #ffffff;
+  --tech-light-grey: #b4bcd0;
+  --tech-muted-grey: #6b7280;
+  --tech-dark-grey: #374151;
+  
+  /* Glow Effects */
+  --tech-glow-blue: 0 0 10px var(--tech-electric-blue);
+  --tech-glow-cyan: 0 0 10px var(--tech-neon-cyan);
+  --tech-glow-purple: 0 0 10px var(--tech-bright-purple);
+  --tech-glow-orange: 0 0 10px var(--tech-neon-orange);
+  --tech-glow-green: 0 0 10px var(--tech-neon-green);
+}
+
+/* Global Overrides */
+body {
+  background: 
+    linear-gradient(rgba(15, 25, 35, 0.97), rgba(15, 25, 35, 0.97)),
+    url('./assets/Beautiful-Plain-Website-Background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--tech-white) !important;
+  font-family: 'Roboto Mono', monospace !important;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Ensure the main container also has the background */
+/* Removed background styling from min-h-screen to allow background.css to control it */
+.min-h-screen {
+  /* Background styling removed */
+}
+
+
+/* Removed Animated Background Pattern */
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--tech-white) !important;
+  margin-bottom: 1rem;
+}
+
+/* Main Heading Styles */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  color: var(--tech-white) !important;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  color: var(--tech-white) !important;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
+  color: var(--tech-white) !important;
+}
+
+/* Section Title Overrides */
+.section-title {
+  font-family: 'Orbitron', sans-serif !important;
+  color: #0088ff !important;
+  position: relative;
+}
+
+/* Theme Section Titles - Reduced font size */
+.theme-card h3,
+.theme-card [class*="title"],
+.theme-title {
+  font-size: clamp(1.1rem, 2vw, 1.5rem) !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.section-title::after {
+  background: linear-gradient(90deg, transparent, var(--tech-electric-blue), transparent) !important;
+  height: 2px !important;
+  box-shadow: var(--tech-glow-blue) !important;
+}
+
+/* Hero Section Styling */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Styling */
+.valorant-button,
+button,
+.btn,
+a[class*="button"],
+input[type="submit"] {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  background: linear-gradient(45deg, var(--tech-electric-blue), var(--tech-neon-cyan)) !important;
+  border: 2px solid var(--tech-electric-blue) !important;
+  color: var(--tech-white) !important;
+  padding: 12px 24px !important;
+  border-radius: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 
+    var(--tech-glow-blue),
+    inset 0 0 20px rgba(0, 212, 255, 0.1) !important;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%) !important;
+}
+
+.valorant-button::before,
+button::before,
+.btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  transition: left 0.5s ease !important;
+}
+
+.valorant-button:hover,
+button:hover,
+.btn:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 
+    var(--tech-glow-cyan),
+    0 10px 30px rgba(0, 212, 255, 0.3) !important;
+  background: linear-gradient(45deg, var(--tech-neon-cyan), var(--tech-bright-purple)) !important;
+  border-color: var(--tech-neon-cyan) !important;
+}
+
+.valorant-button:hover::before,
+button:hover::before,
+.btn:hover::before {
+  left: 100% !important;
+}
+
+.valorant-button:active,
+button:active,
+.btn:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* CTA Buttons with Accent Colors */
+.cta-button,
+.register-button,
+.primary-button {
+  background: linear-gradient(45deg, var(--tech-bright-purple), var(--tech-electric-blue)) !important;
+  border-color: var(--tech-bright-purple) !important;
+  box-shadow: var(--tech-glow-purple) !important;
+}
+
+/* Icon Colors - Theme colors for general icons */
+.sword-icon, 
+.shield-icon,
+.blocks-icon,
+.target-icon,
+.gamepad2-icon,
+.eye-icon,
+.cpu-icon,
+.cloud-icon,
+.lightbulb-icon,
+.newspaper-icon,
+.map-pin-icon,
+.mail-icon,
+.phone-icon,
+.message-square-icon,
+.book-open-icon,
+.x-icon,
+.laptop-icon,
+.alert-triangle-icon,
+.user-check-icon,
+svg[class*="lucide-"] {
+  color: var(--tech-electric-blue) !important;
+  filter: drop-shadow(0 0 5px var(--tech-bright-purple)) !important;
+}
+
+/* Sponsorship Deck icons - White for maximum visibility */
+#sponsors svg[class*="lucide-"],
+#sponsors .w-10.h-10,
+a[href*="sponsorship"] svg {
+  color: var(--tech-white) !important;
+  filter: drop-shadow(0 0 5px var(--tech-electric-blue)) !important;
+  transform: scale(1.05) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Role Labels - Using theme text color */
+[class*="role-label"],
+.role-badge,
+.agent-role,
+.innovator-label,
+.guardian-label,
+.pioneer-label,
+.architect-label,
+.agent-role-label {
+  color: var(--tech-white) !important;
+  text-shadow: 0 0 5px var(--tech-electric-blue) !important;
+}
+
+/* Specific styling for agent roles from agentRoles object */
+span[class*="text-"][class*="ff4655"] {
+  color: var(--tech-white) !important;
+  text-shadow: 0 0 5px var(--tech-electric-blue) !important;
+}
+
+/* Mission Gear Styling */
+#belongings h3.valorant-text-gradient {
+  color: #0088ff !important;
+  text-shadow: 0 0 5px #0088ff !important;
+}
+
+/* Specific styling for BUILD BREAK INNOVATE text */
+p.valorant-text-gradient {
+  color: white !important;
+}
+
+/* Mission Gear Item Backgrounds */
+#belongings .bg-\[\#1a242d\] {
+  background: rgba(15, 20, 25, 0.8) !important;
+  border-color: var(--tech-electric-blue) !important;
+}
+
+#belongings .bg-\[\#ff4655\] {
+  background: var(--tech-white) !important;
+}
+
+#belongings .border-\[\#ff4655\] {
+  border-color: var(--tech-white) !important;
+}
+
+#belongings .border-\[\#ff4655\]\/30 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#belongings .border-\[\#ff4655\]\/20 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+#belongings .border-l-4.border-\[\#ff4655\] {
+  border-left-color: var(--tech-white) !important;
+}
+
+#belongings .text-\[\#ff4655\] {
+  color: var(--tech-white) !important;
+}
+
+#belongings .bg-\[\#ff4655\].rounded-full {
+  background: var(--tech-white) !important;
+}
+
+#maps .bg-\[\#ff4655\] {
+  background: var(--tech-white) !important;
+}
+
+#maps .border-\[\#ff4655\] {
+  border-color: var(--tech-white) !important;
+}
+
+#maps .border-\[\#ff4655\]\/30 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#maps .border-\[\#ff4655\]\/20 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+#maps .border-l-4.border-\[\#ff4655\] {
+  border-left-color: var(--tech-white) !important;
+}
+
+#maps .text-\[\#ff4655\] {
+  color: var(--tech-white) !important;
+}
+
+#maps .bg-\[\#ff4655\].rounded-full {
+  background: var(--tech-white) !important;
+}
+
+#weapons .bg-\[\#ff4655\] {
+  background: var(--tech-white) !important;
+}
+
+#weapons .border-\[\#ff4655\] {
+  border-color: var(--tech-white) !important;
+}
+
+#weapons .border-\[\#ff4655\]\/30 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#weapons .border-\[\#ff4655\]\/20 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+#weapons .border-l-4.border-\[\#ff4655\] {
+  border-left-color: var(--tech-white) !important;
+}
+
+#weapons .text-\[\#ff4655\] {
+  color: var(--tech-white) !important;
+}
+
+#weapons .bg-\[\#ff4655\].rounded-full {
+  background: var(--tech-white) !important;
+}
+
+#agents .bg-\[\#ff4655\] {
+  background: var(--tech-white) !important;
+}
+
+#agents .border-\[\#ff4655\] {
+  border-color: var(--tech-white) !important;
+}
+
+#agents .border-\[\#ff4655\]\/30 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#agents .border-\[\#ff4655\]\/20 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+#agents .border-l-4.border-\[\#ff4655\] {
+  border-left-color: var(--tech-white) !important;
+}
+
+#agents .text-\[\#ff4655\] {
+  color: var(--tech-white) !important;
+}
+
+#agents .bg-\[\#ff4655\].rounded-full {
+  background: var(--tech-white) !important;
+}
+
+.cta-button:hover,
+.register-button:hover,
+.primary-button:hover {
+  background: linear-gradient(45deg, var(--tech-white), var(--tech-neon-green)) !important;
+  box-shadow: var(--tech-glow-green) !important;
+}
+
+/* Form Styling */
+input,
+textarea,
+select {
+  background: rgba(40, 101, 161, 0.8) !important;
+  border: 2px solid var(--tech-dark-grey) !important;
+  color: var(--tech-white) !important;
+  padding: 12px 16px !important;
+  border-radius: 0 !important;
+  font-family: 'Roboto Mono', monospace !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--tech-electric-blue) !important;
+  box-shadow: 
+    var(--tech-glow-blue),
+    inset 0 0 20px rgba(0, 212, 255, 0.1) !important;
+  background: rgba(15, 20, 25, 0.9) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--tech-muted-grey) !important;
+  font-style: italic;
+}
+
+/* Card Styling */
+.valorant-card-hover,
+.card,
+.theme-card,
+[class*="card"] {
+  background: 
+    linear-gradient(135deg, rgba(15, 20, 25, 0.9) 0%, rgba(26, 31, 46, 0.8) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.2) !important;
+  backdrop-filter: blur(15px) !important;
+  border-radius: 0 !important;
+  transition: all 0.4s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%) !important;
+}
+
+.valorant-card-hover::before,
+.card::before,
+.theme-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.05), transparent) !important;
+  transform: translateX(-100%) !important;
+  transition: transform 0.6s ease !important;
+}
+
+.valorant-card-hover:hover,
+.card:hover,
+.theme-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: var(--tech-electric-blue) !important;
+  box-shadow: 
+    var(--tech-glow-blue),
+    0 20px 40px rgba(0, 212, 255, 0.2) !important;
+}
+
+.valorant-card-hover:hover::before,
+.card:hover::before,
+.theme-card:hover::before {
+  transform: translateX(100%) !important;
+}
+
+/* Navigation Styling */
+nav,
+.navbar,
+header {
+  background: rgba(10, 10, 15, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3) !important;
+}
+
+/* Mobile menu hamburger and close icon styling */
+button .w-6.h-6 {
+  color: var(--tech-white) !important;
+  transition: all 0.3s ease !important;
+}
+
+button:hover .w-6.h-6 {
+  color: var(--tech-electric-blue) !important;
+  filter: drop-shadow(0 0 3px var(--tech-bright-purple)) !important;
+}
+
+nav a,
+.nav-link,
+header a {
+  color: var(--tech-white) !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+}
+
+/* Register Now button in navbar - improved visibility */
+.register-button, 
+.nav-link.register-button,
+header a.register-button {
+  color: var(--tech-white) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 5px var(--tech-neon-cyan) !important;
+  background: linear-gradient(45deg, var(--tech-bright-purple), var(--tech-neon-cyan)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+nav a:hover,
+.nav-link:hover,
+header a:hover {
+  color: var(--tech-electric-blue) !important;
+  text-shadow: var(--tech-glow-blue) !important;
+}
+
+/* Register Now bolt icon styling */
+.valorant-button .w-4.h-4,
+button .w-4.h-4,
+.register-button svg,
+.nav-link svg {
+  color: var(--tech-white) !important;
+  filter: drop-shadow(0 0 3px var(--tech-bright-purple)) !important;
+  transition: all 0.3s ease !important;
+}
+
+.valorant-button:hover .w-4.h-4,
+button:hover .w-4.h-4,
+.register-button:hover svg,
+.nav-link:hover svg {
+  color: var(--tech-neon-cyan) !important;
+  filter: drop-shadow(0 0 5px var(--tech-bright-purple)) !important;
+  transform: scale(1.1) rotate(5deg);
+}
+
+nav a::after,
+.nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, var(--tech-electric-blue), var(--tech-neon-cyan)) !important;
+  transition: width 0.3s ease !important;
+}
+
+nav a:hover::after,
+.nav-link:hover::after {
+  width: 100% !important;
+}
+
+/* Section Dividers */
+section {
+  position: relative !important;
+  padding: 4rem 0 !important;
+}
+
+section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 80% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, var(--tech-electric-blue), transparent) !important;
+  box-shadow: var(--tech-glow-blue) !important;
+}
+
+/* Countdown Timer Styling */
+.countdown-timer,
+[class*="countdown"] {
+  font-family: 'Orbitron', monospace !important;
+}
+
+.countdown-timer .time-unit,
+[class*="countdown"] > div {
+  background: 
+    linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%) !important;
+  border: 2px solid var(--tech-electric-blue) !important;
+  box-shadow: 
+    var(--tech-glow-blue),
+    inset 0 0 20px rgba(0, 212, 255, 0.1) !important;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%) !important;
+}
+
+/* Sponsor/Logo Styling */
+.sponsor-logo,
+.logo,
+img[class*="logo"] {
+  filter: brightness(0.8) contrast(1.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.sponsor-logo:hover,
+.logo:hover,
+img[class*="logo"]:hover {
+  filter: brightness(1.2) contrast(1.4) drop-shadow(var(--tech-glow-blue)) !important;
+  transform: scale(1.05) !important;
+}
+
+/* FAQ Section */
+.faq-item,
+[class*="faq"] {
+  background: rgba(15, 20, 25, 0.6) !important;
+  border-left: 3px solid var(--tech-white) !important;
+  transition: all 0.3s ease !important;
+  text-align: left !important;
+  padding: 15px !important;
+  margin-bottom: 10px !important;
+}
+
+.faq-item:hover,
+[class*="faq"]:hover {
+  background: rgba(15, 20, 25, 0.8) !important;
+  border-left-color: var(--tech-white) !important;
+}
+
+/* FAQ Category Boxes - improved text visibility */
+.faq-category, 
+[class*="faq-category"],
+[class*="faq"] button,
+[class*="faq"] .category-button {
+  color: var(--tech-white) !important;
+  font-weight: 600 !important;
+  background: rgba(15, 20, 25, 0.8) !important;
+  border: 1px solid var(--tech-white) !important;
+  text-align: center !important;
+  padding: 10px 20px !important;
+  margin: 5px !important;
+  display: inline-block !important;
+}
+
+/* Timeline Styling */
+.timeline-item,
+[class*="timeline"] {
+  position: relative !important;
+}
+
+.timeline-item::before,
+[class*="timeline"]::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 4px !important;
+  height: 100% !important;
+  background: linear-gradient(180deg, var(--tech-electric-blue), var(--tech-bright-purple)) !important;
+  box-shadow: var(--tech-glow-blue) !important;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tech-dark-bg) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--tech-electric-blue), var(--tech-bright-purple)) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--tech-glow-blue) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--tech-neon-cyan), var(--tech-hot-pink)) !important;
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(0, 212, 255, 0.3) !important;
+  color: var(--tech-white) !important;
+  text-shadow: var(--tech-glow-blue) !important;
+}
+
+/* Loading Animation */
+@keyframes techPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.loading,
+[class*="loading"] {
+  animation: techPulse 2s ease-in-out infinite !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .valorant-button,
+  button {
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .valorant-card-hover:hover,
+  .card:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+  }
+}
+
+/* Footer Titles - Desktop Only Size Reduction */
+@media (min-width: 769px) {
+  footer h3,
+  footer h4,
+  footer [class*="title"],
+  footer .footer-title,
+  footer .footer-heading {
+    font-size: clamp(1.2rem, 2vw, 1.8rem) !important;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Indicators */
+*:focus {
+  outline: 2px solid var(--tech-electric-blue) !important;
+  outline-offset: 2px !important;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --tech-electric-blue: #00e5ff;
+    --tech-neon-cyan: #00ffff;
+    --tech-bright-purple: #a855f7;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .valorant-button,
+  button {
+    background: transparent !important;
+    border: 2px solid black !important;
+    color: black !important;
+  }
+}
