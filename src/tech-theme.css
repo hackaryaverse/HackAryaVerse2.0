@@ -665,6 +665,24 @@ img[class*="logo"]:hover {
 }
 
 /* Loading Animation */
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 18px));
+  }
+}
+
+.animate-scroll-right-to-left {
+  animation: scroll-right-to-left 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-right-to-left:hover {
+  animation-play-state: paused;
+}
+
 @keyframes techPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.7; transform: scale(1.05); }

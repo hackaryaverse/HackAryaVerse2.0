@@ -31,6 +31,14 @@ import reskill from './sp/reskill.jpg';
 // Import background image
 import bgImage from './assets/background.jpg';
 import hlogo from './assets/logo.png';
+// Import Past Glimpses images
+import G1 from './assets/G1.JPG';
+import G2 from './assets/G2.JPG';
+import G3 from './assets/G3.JPG';
+import G4 from './assets/G4.JPG';
+import G5 from './assets/G5.JPG';
+import G6 from './assets/G6.JPG';
+import G7 from './assets/G7.JPG';
 // import devesh from './mentors/deveshbirla.jpg';
 // import ajay from './mentors/ajayshram.jpg';
 // import ajeet from './mentors/ajeetchaudhry.jpg';
@@ -257,7 +265,7 @@ const faqsData = {
     },
     {
       question: "Is there any registration fee?",
-      answer: "No, Hack Arya Verse 2.0 is completely free to participate in. However, meals and snacks will be available for purchase at the venue. A workspace will be provided throughout the event."
+      answer: "No, Hack Arya Verse 2.0 is completely free to participate in the event. Food stalls will be at the venue A workspace will be provided throughout the event."
     }
   ],
   technical: [
@@ -283,10 +291,10 @@ const faqsData = {
       question: "What should we bring?",
       answer: "Bring your laptop, charger,extension board,any hardware you plan to use, and a valid student ID. We recommend bringing a change of clothes and any personal items you might need."
     },
-    {
-      question: "Will there be food provided?",
-      answer: "Yes! Meals, snacks, and coffee will be available at the event, but they will be paid. Students can purchase them directly from the stalls at the venue."
-    }
+    //{
+     // question: "Will there be food provided?",
+      //answer: "Yes! Meals, snacks, and coffee will be available at the event, but they will be paid. Students can purchase them directly from the stalls at the venue."
+    //}
   ]
 };
 
@@ -299,7 +307,7 @@ function CountdownTimer() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2025-10-11T12:00:00+04:00'); // IST timezone offset
+    const targetDate = new Date('2026-03-28T12:00:00+04:00'); // IST timezone offset - 28th March 2026 12pm
 
     const interval = setInterval(() => {
       const now = new Date();
@@ -1053,7 +1061,7 @@ function App() {
             <div className="flex items-center space-x-4">
               <button 
                 className="valorant-button text-sm group"
-                onClick={() => window.location.href = 'https://luma.com/bhdq6loy'}
+                onClick={() => window.location.href = 'https://bit.ly/4aME7PO'}
               >
                 <Zap className="w-4 h-4 inline-block mr-2 group-hover:valorant-glitch" />
                 <span className="group-hover:valorant-glitch">Register Now</span>
@@ -1084,11 +1092,8 @@ function App() {
           <div className="mb-6 lg:mb-8 w-[90%] sm:w-[40%] lg:w-[100%] valorant-reveal">
             <img src={hlogo} alt="Hack Arya Verse 2.0 Logo" className="mx-auto mb-4" />
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold valorant-glow mb-4 lg:mb-6 valorant-reveal leading-tight">
-            Hack Arya Verse 2.0
-          </h1>
-          <p className="text-base sm:text-lg lg:text-xl mb-6 lg:mb-8 valorant-text-gradient valorant-reveal leading-relaxed">
-          BUILD BREAK INNOVATE
+          <p className="text-base sm:text-lg lg:text-xl mb-6 lg:mb-8 valorant-text-gradient valorant-reveal leading-relaxed font-medium">
+          PLANT IDEAS, DEFUSE LIMITS
           </p>
           <div className="valorant-reveal mb-6 lg:mb-8">
             <CountdownTimer />
@@ -1096,7 +1101,7 @@ function App() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center valorant-reveal">
             <button 
               className="valorant-button group"
-              onClick={() => window.location.href = 'https://luma.com/bhdq6loy'}
+              onClick={() => window.location.href = 'https://bit.ly/4aME7PO'}
             >
               <span className="group-hover:valorant-glitch">Register Now</span>
             </button>
@@ -1178,6 +1183,57 @@ function App() {
       {/* Night Market Section */}
 
       
+
+      {/* Past Glimpses Section */}
+      <section id="past-glimpses" className="py-20 px-4 valorant-section">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="section-title">PAST GLIMPSES</h2>
+          <div className="theme-card valorant-card-hover p-8">
+            <div className="relative overflow-hidden">
+              <div className="flex gap-6 animate-scroll-right-to-left" style={{ width: 'fit-content' }}>
+                {/* First set of images */}
+                {[G1, G2, G3, G4, G5, G6, G7].map((image, index) => (
+                  <div
+                    key={`img-${index}`}
+                    className="relative flex-shrink-0 w-[400px] h-[300px] overflow-hidden rounded-lg border border-[#ffffff]/20 hover:border-[#ff4655] transition-all duration-300 group cursor-pointer"
+                  >
+                    <img
+                      src={image}
+                      alt={`Past Glimpse ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {[G1, G2, G3, G4, G5, G6, G7].map((image, index) => (
+                  <div
+                    key={`img-duplicate-${index}`}
+                    className="relative flex-shrink-0 w-[400px] h-[300px] overflow-hidden rounded-lg border border-[#ffffff]/20 hover:border-[#ff4655] transition-all duration-300 group cursor-pointer"
+                  >
+                    <img
+                      src={image}
+                      alt={`Past Glimpse ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Sponsors Section */}
       <section id="sponsors" className="py-20 px-4 valorant-section">
