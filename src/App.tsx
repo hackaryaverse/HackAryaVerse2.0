@@ -307,7 +307,7 @@ function CountdownTimer() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-03-28T12:00:00+04:00'); // IST timezone offset - 28th March 2026 12pm
+    const targetDate = new Date('2026-03-14T12:00:00+04:00'); // IST timezone offset - 28th March 2026 12pm
 
     const interval = setInterval(() => {
       const now = new Date();
