@@ -47,7 +47,6 @@ import G4 from './assets/G4.JPG';
 import G5 from './assets/G5.JPG';
 import G6 from './assets/G6.JPG';
 import G7 from './assets/G7.JPG';
-
 // import devesh from './mentors/deveshbirla.jpg';
 // import ajay from './mentors/ajayshram.jpg';
 // import ajeet from './mentors/ajeetchaudhry.jpg';
@@ -1049,7 +1048,6 @@ function App() {
 
   return (
     <div className="min-h-screen text-gray-100 main-container">
-<<<<<<< HEAD
       {/* Scroll Progress Indicator */}
       <ScrollProgress />
 
@@ -1062,9 +1060,6 @@ function App() {
         starCount={200}
       />
 
-=======
-      <div className="global-fixed-bg" />
->>>>>>> c9246cce2d21faa5eedf1ecffc683c10c245438a
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--tech-dark-bg)] bg-opacity-95 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4">
@@ -1104,7 +1099,6 @@ function App() {
 
       {/* Hero Section */}
       <section
-<<<<<<< HEAD
         className="min-h-screen flex items-center justify-center relative overflow-hidden pb-20"
         style={{
           backgroundImage: `url(${spaceBackground})`,
@@ -1112,14 +1106,10 @@ function App() {
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}
-=======
-        className="min-h-screen flex items-center justify-center relative overflow-hidden mt-12 lg:mt-20 mb-12 lg:mb-20"
->>>>>>> c9246cce2d21faa5eedf1ecffc683c10c245438a
       >
         {/* Dark Overlay for readability */}
         <div className="absolute inset-0 bg-black/30"></div>
 
-<<<<<<< HEAD
         {/* Dark Overlay for readability */}
         <div className="absolute inset-0 bg-black/40"></div>
 
@@ -1152,34 +1142,6 @@ function App() {
               </button>
             </div>
           </ScrollReveal>
-=======
-        {/* Content */}
-        <div className="relative z-10 flex flex-col justify-center items-center text-center px-4 w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[600px]">
-          <div className="mb-6 lg:mb-8 w-[90%] sm:w-[40%] lg:w-[100%] valorant-reveal">
-            <img src={hlogo} alt="Hack Arya Verse 2.0 Logo" className="mx-auto mb-4" />
-          </div>
-          <p className="text-base sm:text-lg lg:text-xl mb-6 lg:mb-8 valorant-text-gradient valorant-reveal leading-relaxed font-medium">
-            PLANT IDEAS, DEFUSE LIMITS
-          </p>
-          <div className="valorant-reveal mb-6 lg:mb-8">
-            <CountdownTimer />
-          </div>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center valorant-reveal">
-            <button
-              className="valorant-button group"
-              onClick={() => window.location.href = 'https://bit.ly/4aME7PO'}
-            >
-              <span className="group-hover:valorant-glitch">Register Now</span>
-            </button>
-            <button
-              className="valorant-button bg-transparent group"
-              onClick={() => window.location.href = 'https://linktr.ee/HackAryaVerse_2.0'}
-            >
-              <span className="group-hover:valorant-glitch">Know More</span>
-            </button>
-
-          </div>
->>>>>>> c9246cce2d21faa5eedf1ecffc683c10c245438a
         </div>
       </section>
 
@@ -1229,7 +1191,6 @@ function App() {
             {themes.map((theme, index) => {
               const IconComponent = theme.icon;
               return (
-<<<<<<< HEAD
                 <ScrollReveal key={index} delay={0.1 * index} direction="up">
                   <TiltCard
                     className={`theme-card space-card group h-full ${selectedTrack === index ? 'ring-2 ring-[var(--cosmic-cyan)]' : ''
@@ -1249,22 +1210,6 @@ function App() {
                     </div>
                   </TiltCard>
                 </ScrollReveal>
-=======
-                <div
-                  key={index}
-                  className={`theme-card valorant-card-hover group valorant-agent-select ${selectedTrack === index ? 'valorant-ability' : ''
-                    }`}
-                  onClick={() => setSelectedTrack(index)}
-                >
-                  <div className="flex items-center mb-4">
-                    <IconComponent className={`w-12 h-12 text-[#ff4655] ${selectedTrack === index ? 'valorant-ultimate' : ''
-                      }`} />
-                    <span className="ml-2 text-sm agent-role-label">{theme.role}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 valorant-text-gradient">{theme.title}</h3>
-                  <p className="text-gray-400">{theme.description}</p>
-                </div>
->>>>>>> c9246cce2d21faa5eedf1ecffc683c10c245438a
               );
             })}
           </div>
@@ -1282,7 +1227,6 @@ function App() {
       {/* Past Glimpses Section */}
       <section id="past-glimpses" className="py-20 px-4 valorant-section">
         <div className="max-w-6xl mx-auto">
-<<<<<<< HEAD
           <ScrollReveal>
             <h2 className="section-title space-title">🌍 MISSION MEMORIES</h2>
           </ScrollReveal>
@@ -1332,86 +1276,15 @@ function App() {
               </div>
             </div>
           </ScrollReveal>
-=======
-          <h2 className="section-title">PAST GLIMPSES</h2>
-          <div className="theme-card valorant-card-hover p-8">
-            <div className="relative overflow-hidden">
-              <div className="flex gap-6 animate-scroll-right-to-left" style={{ width: 'fit-content' }}>
-                {/* First set of images */}
-                {[G1, G2, G3, G4, G5, G6, G7].map((image, index) => (
-                  <div
-                    key={`img-${index}`}
-                    className="relative flex-shrink-0 w-[400px] h-[300px] overflow-hidden rounded-lg border border-[#ffffff]/20 hover:border-[#ff4655] transition-all duration-300 group cursor-pointer"
-                  >
-                    <img
-                      src={image}
-                      alt={`Past Glimpse ${index + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.onerror = null;
-                        target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                ))}
-                {/* Duplicate set for seamless loop */}
-                {[G1, G2, G3, G4, G5, G6, G7].map((image, index) => (
-                  <div
-                    key={`img-duplicate-${index}`}
-                    className="relative flex-shrink-0 w-[400px] h-[300px] overflow-hidden rounded-lg border border-[#ffffff]/20 hover:border-[#ff4655] transition-all duration-300 group cursor-pointer"
-                  >
-                    <img
-                      src={image}
-                      alt={`Past Glimpse ${index + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.onerror = null;
-                        target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Video Section */}
-          <div className="theme-card valorant-card-hover p-4 mt-8">
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-[#ffffff]/20 group">
-              <iframe
-                className="w-full h-full object-cover"
-                src="https://www.youtube.com/embed/9YwCkMokNwI?autoplay=1&mute=1&loop=1&playlist=9YwCkMokNwI"
-                title="Hack Arya Verse 2.0 Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-              {/* Overlay for hover effect */}
-              <div className="absolute inset-0 pointer-events-none border-2 border-transparent group-hover:border-[#ff4655] transition-colors duration-300 rounded-lg"></div>
-            </div>
-          </div>
->>>>>>> c9246cce2d21faa5eedf1ecffc683c10c245438a
         </div>
       </section>
 
       {/* Sponsors Section */}
       <section id="sponsors" className="py-20 px-4 valorant-section">
         <div className="max-w-6xl mx-auto">
-<<<<<<< HEAD
           <ScrollReveal>
             <h2 className="section-title space-title">🛰️ MISSION PARTNERS</h2>
           </ScrollReveal>
-=======
-          <h2 className="section-title">Sponsors</h2>
->>>>>>> c9246cce2d21faa5eedf1ecffc683c10c245438a
 
 
           <div className="space-y-16">
