@@ -1130,7 +1130,7 @@ function App() {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 className="space-button group"
-                onClick={() => window.location.href = 'https://bit.ly/4aME7PO'}
+                onClick={() => window.location.href = 'https://unstop.com/hackathons/hack-arya-verse-20-arya-college-of-engineering-and-information-technology-aceit-jaipur-rajasthan-1620558'}
               >
                 <span className="relative z-10">🚀 Register Now</span>
               </button>
