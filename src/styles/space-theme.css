@@ -1,0 +1,533 @@
+/* Space Theme CSS - Cosmic Hackathon Website */
+
+/* Space Theme Variables */
+:root {
+    /* Deep Space Colors */
+    --space-void: #0a0a1a;
+    --space-deep: #0d0d2b;
+    --space-navy: #1a1a3e;
+    --space-purple: #2d1b4e;
+
+    /* Cosmic Accent Colors */
+    --cosmic-cyan: #00d4ff;
+    --cosmic-purple: #8b5cf6;
+    --cosmic-pink: #ec4899;
+    --cosmic-blue: #3b82f6;
+    --nebula-pink: #ff6b9d;
+    --nebula-orange: #f97316;
+    --star-white: #ffffff;
+    --star-yellow: #fcd34d;
+
+    /* Glow Effects */
+    --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.5);
+    --glow-purple: 0 0 20px rgba(139, 92, 246, 0.5);
+    --glow-pink: 0 0 20px rgba(236, 72, 153, 0.5);
+}
+
+/* Space Background Base */
+body {
+    background: var(--space-void) !important;
+    min-height: 100vh;
+}
+
+.main-container {
+    background:
+        radial-gradient(ellipse at top, var(--space-purple) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, var(--space-navy) 0%, transparent 50%),
+        linear-gradient(180deg, var(--space-void) 0%, var(--space-deep) 50%, var(--space-void) 100%) !important;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated Star Field */
+.star-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--twinkle-duration, 3s) ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Shooting Stars */
+.shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cosmic-cyan), transparent);
+    animation: shoot 3s ease-out infinite;
+    opacity: 0;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(500px) translateY(300px);
+        opacity: 0;
+    }
+}
+
+/* Nebula Glow Effects */
+.nebula-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.nebula-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    animation: nebulaPulse 10s ease-in-out infinite;
+}
+
+.nebula-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+    bottom: -150px;
+    left: -150px;
+    animation: nebulaPulse 12s ease-in-out infinite reverse;
+}
+
+.nebula-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: nebulaPulse 8s ease-in-out infinite;
+}
+
+@keyframes nebulaPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* Floating Planet Animation */
+@keyframes floatPlanet {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.floating-planet {
+    animation: floatPlanet 8s ease-in-out infinite;
+}
+
+/* Space Cards */
+.space-card {
+    background: rgba(13, 13, 43, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    box-shadow:
+        0 0 30px rgba(139, 92, 246, 0.1),
+        inset 0 0 30px rgba(0, 212, 255, 0.05) !important;
+    transition: all 0.4s ease !important;
+}
+
+.space-card:hover {
+    border-color: var(--cosmic-cyan) !important;
+    box-shadow:
+        0 0 40px rgba(0, 212, 255, 0.3),
+        inset 0 0 40px rgba(0, 212, 255, 0.1) !important;
+    transform: translateY(-10px) !important;
+}
+
+/* Space Button */
+.space-button {
+    background: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-cyan)) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: bold !important;
+    padding: 15px 30px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    box-shadow: var(--glow-purple) !important;
+}
+
+.space-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    animation: buttonShine 3s infinite;
+}
+
+@keyframes buttonShine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.space-button:hover {
+    transform: scale(1.05) !important;
+    box-shadow: var(--glow-cyan), 0 10px 40px rgba(0, 212, 255, 0.4) !important;
+}
+
+/* Space Section Title */
+.space-title {
+    background: linear-gradient(135deg, var(--cosmic-cyan), var(--cosmic-purple), var(--cosmic-pink)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: none !important;
+    position: relative;
+}
+
+.space-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cosmic-cyan), var(--cosmic-purple), transparent);
+}
+
+/* Constellation Lines */
+.constellation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.constellation-line {
+    stroke: var(--cosmic-cyan);
+    stroke-width: 1;
+    fill: none;
+    opacity: 0.5;
+    animation: constellationFade 5s ease-in-out infinite;
+}
+
+@keyframes constellationFade {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Orbit Animation */
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+}
+
+.orbiting-element {
+    animation: orbit 20s linear infinite;
+}
+
+/* Space Progress Bar */
+.space-progress {
+    background: linear-gradient(90deg,
+            var(--cosmic-cyan),
+            var(--cosmic-purple),
+            var(--cosmic-pink),
+            var(--cosmic-cyan)) !important;
+    background-size: 300% 100%;
+    animation: progressGradient 3s linear infinite;
+}
+
+@keyframes progressGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
+}
+
+/* Holographic Effect */
+.holographic {
+    background: linear-gradient(135deg,
+            rgba(0, 212, 255, 0.1) 0%,
+            rgba(139, 92, 246, 0.1) 25%,
+            rgba(236, 72, 153, 0.1) 50%,
+            rgba(139, 92, 246, 0.1) 75%,
+            rgba(0, 212, 255, 0.1) 100%);
+    background-size: 400% 400%;
+    animation: holographicShift 10s ease infinite;
+}
+
+@keyframes holographicShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Asteroid Field Animation */
+@keyframes asteroidFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(90deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(180deg);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateY(-15px) rotate(270deg);
+    }
+}
+
+.asteroid {
+    animation: asteroidFloat 10s ease-in-out infinite;
+}
+
+/* Space Text Glow */
+.space-text-glow {
+    text-shadow:
+        0 0 10px var(--cosmic-cyan),
+        0 0 20px var(--cosmic-cyan),
+        0 0 30px var(--cosmic-purple);
+}
+
+/* Warp Speed Effect */
+@keyframes warpSpeed {
+    0% {
+        transform: translateZ(0) scale(1);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateZ(500px) scale(3);
+        opacity: 0;
+    }
+}
+
+.warp-star {
+    animation: warpSpeed 2s linear infinite;
+}
+
+/* Saturn Rings Effect */
+.saturn-rings {
+    position: relative;
+}
+
+.saturn-rings::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(75deg);
+    width: 150%;
+    height: 20px;
+    background: linear-gradient(90deg,
+            transparent 10%,
+            rgba(139, 92, 246, 0.3) 30%,
+            rgba(0, 212, 255, 0.5) 50%,
+            rgba(139, 92, 246, 0.3) 70%,
+            transparent 90%);
+    border-radius: 50%;
+}
+
+/* Apply Space Theme to existing elements */
+.valorant-section {
+    background: transparent !important;
+    position: relative;
+    z-index: 2;
+}
+
+.valorant-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg,
+            rgba(10, 10, 26, 0.8) 0%,
+            rgba(13, 13, 43, 0.6) 50%,
+            rgba(10, 10, 26, 0.8) 100%);
+    z-index: -1;
+}
+
+.theme-card,
+.valorant-card-hover {
+    background: rgba(13, 13, 43, 0.7) !important;
+    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+.theme-card:hover,
+.valorant-card-hover:hover {
+    border-color: var(--cosmic-cyan) !important;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2) !important;
+}
+
+.section-title {
+    color: var(--cosmic-cyan) !important;
+}
+
+.valorant-text-gradient {
+    color: var(--cosmic-cyan) !important;
+}
+
+.valorant-button {
+    background: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-cyan)) !important;
+    border: 1px solid var(--cosmic-cyan) !important;
+    color: white !important;
+}
+
+.valorant-button:hover {
+    background: linear-gradient(135deg, var(--cosmic-cyan), var(--cosmic-purple)) !important;
+    box-shadow: var(--glow-cyan) !important;
+}
+
+/* Countdown Timer Space Style */
+.valorant-glow {
+    background: rgba(13, 13, 43, 0.9) !important;
+    border: 1px solid var(--cosmic-purple) !important;
+    box-shadow: var(--glow-purple) !important;
+}
+
+/* Navigation Space Style */
+nav,
+.navbar,
+header {
+    background: rgba(10, 10, 26, 0.95) !important;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* Footer Space Style */
+footer {
+    background: linear-gradient(180deg, var(--space-deep), var(--space-void)) !important;
+    border-top: 1px solid rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Scrollbar Space Style */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--cosmic-cyan), var(--cosmic-purple)) !important;
+    box-shadow: var(--glow-purple) !important;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--space-void) !important;
+}
+
+/* Selection Space Style */
+::selection {
+    background: rgba(0, 212, 255, 0.3) !important;
+    color: white !important;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .nebula-glow {
+        opacity: 0.3;
+    }
+
+    .shooting-star {
+        display: none;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .star,
+    .shooting-star,
+    .nebula-glow,
+    .floating-planet,
+    .orbiting-element,
+    .warp-star {
+        animation: none !important;
+    }
+}

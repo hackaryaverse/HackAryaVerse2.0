@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 // Using the imported bg variable directly
 import './tech-theme.css';
+// Animation imports
+import { ScrollReveal, ScaleReveal, TiltCard, Parallax } from './components/ScrollReveal';
+import { ScrollProgress, FloatingElement } from './components/ScrollProgress';
+import { SpaceBackground } from './components/SpaceBackground';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 import { RiTelegramLine } from "react-icons/ri";
 import { AiOutlineDiscord } from "react-icons/ai";
 import Arya from "./sp/Arya.png";
@@ -28,9 +36,9 @@ import techlab from './sp/1631309984557.jpg';
 import microsoft from './sp/microsoft_logo.jpg'
 import azure from './sp/Azure.png';
 import reskill from './sp/reskill.jpg';
-// Import background image
-import bgImage from './assets/background.jpg';
-import hlogo from './assets/logo.png';
+// Import images
+import hlogo from './assets copy/HAV2.0_.png';
+import spaceBackground from './assets copy/space.jpg';
 // Import Past Glimpses images
 import G1 from './assets/G1.JPG';
 import G2 from './assets/G2.JPG';
@@ -65,7 +73,7 @@ import HT from './sp/ht.png';
 import celabal from './sp/celebal.png';
 import varta from './sp/Vaarta.png';
 import vriti from './sp/Vriti.png';
-import meta  from './sp/metacube_logo.jpg';
+import meta from './sp/metacube_logo.jpg';
 // import bharat from './mentors/bharat.jpg';
 // import rajesh from './mentors/rajesh.jpg';
 import {
@@ -292,8 +300,8 @@ const faqsData = {
       answer: "Bring your laptop, charger,extension board,any hardware you plan to use, and a valid student ID. We recommend bringing a change of clothes and any personal items you might need."
     },
     //{
-     // question: "Will there be food provided?",
-      //answer: "Yes! Meals, snacks, and coffee will be available at the event, but they will be paid. Students can purchase them directly from the stalls at the venue."
+    // question: "Will there be food provided?",
+    //answer: "Yes! Meals, snacks, and coffee will be available at the event, but they will be paid. Students can purchase them directly from the stalls at the venue."
     //}
   ]
 };
@@ -307,7 +315,7 @@ function CountdownTimer() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-03-28T12:00:00+04:00'); // IST timezone offset - 28th March 2026 12pm
+    const targetDate = new Date('2026-03-14T12:00:00+05:30'); // Countdown to 14 March 2026 12pm IST
 
     const interval = setInterval(() => {
       const now = new Date();
@@ -344,59 +352,59 @@ function CountdownTimer() {
 }
 
 const themes = [
-  { 
-    icon: Sword, 
-    title: 'AI & Machine Learning', 
-    role: agentRoles.INNOVATOR, 
-    description: 'Intelligent solutions using AI models & Open Innovation.' 
+  {
+    icon: Sword,
+    title: 'AI & Machine Learning',
+    role: agentRoles.INNOVATOR,
+    description: 'Intelligent solutions using AI models & Open Innovation.'
   },
-  { 
-    icon: Shield, 
-    title: 'Cybersecurity', 
-    role: agentRoles.GUARDIAN, 
-    description: 'Strengthening digital defenses with AI-driven threat detection and blockchain security.' 
+  {
+    icon: Shield,
+    title: 'Cybersecurity',
+    role: agentRoles.GUARDIAN,
+    description: 'Strengthening digital defenses with AI-driven threat detection and blockchain security.'
   },
-  { 
-    icon: Blocks, 
-    title: 'Web 3.0 & Blockchain', 
-    role: agentRoles.GUARDIAN, 
-    description: 'Building a secure, decentralized, and transparent digital world with blockchain.' 
+  {
+    icon: Blocks,
+    title: 'Web 3.0 & Blockchain',
+    role: agentRoles.GUARDIAN,
+    description: 'Building a secure, decentralized, and transparent digital world with blockchain.'
   },
-  { 
-    icon: Target, 
-    title: 'Web & App Development', 
-    role: agentRoles.PIONEER, 
-    description: 'Innovative and functional applications & Open Innovation.' 
+  {
+    icon: Target,
+    title: 'Web & App Development',
+    role: agentRoles.PIONEER,
+    description: 'Innovative and functional applications & Open Innovation.'
   },
-  { 
-    icon: Gamepad2, 
-    title: 'Game Development', 
-    role: agentRoles.INNOVATOR, 
-    description: 'Game development is the process of designing, creating, and programming interactive digital games.' 
+  {
+    icon: Gamepad2,
+    title: 'Game Development',
+    role: agentRoles.INNOVATOR,
+    description: 'Game development is the process of designing, creating, and programming interactive digital games.'
   },
-  { 
-    icon: Eye, 
-    title: 'AR/VR', 
-    role: agentRoles.PIONEER, 
-    description: 'AR/VR blends the real and virtual worlds to create immersive, interactive experiences.' 
+  {
+    icon: Eye,
+    title: 'AR/VR',
+    role: agentRoles.PIONEER,
+    description: 'AR/VR blends the real and virtual worlds to create immersive, interactive experiences.'
   },
-  { 
-    icon: Cpu, 
-    title: 'IoT & Smart Devices', 
-    role: agentRoles.ARCHITECT, 
-    description: 'Tech solutions for social good & Open Innovation.' 
+  {
+    icon: Cpu,
+    title: 'IoT & Smart Devices',
+    role: agentRoles.ARCHITECT,
+    description: 'Tech solutions for social good & Open Innovation.'
   },
-  { 
-    icon: Cloud, 
-    title: 'Cloud & DevOps', 
-    role: agentRoles.ARCHITECT, 
-    description: 'Cloud and DevOps streamline app delivery through automation, scalability, and continuous deployment.' 
+  {
+    icon: Cloud,
+    title: 'Cloud & DevOps',
+    role: agentRoles.ARCHITECT,
+    description: 'Cloud and DevOps streamline app delivery through automation, scalability, and continuous deployment.'
   },
-  { 
-    icon: Lightbulb, 
-    title: 'Open Innovation', 
-    role: agentRoles.INNOVATOR, 
-    description: 'Open innovation encourages collaboration and idea-sharing across diverse teams to develop creative, real-world solutions.' 
+  {
+    icon: Lightbulb,
+    title: 'Open Innovation',
+    role: agentRoles.INNOVATOR,
+    description: 'Open innovation encourages collaboration and idea-sharing across diverse teams to develop creative, real-world solutions.'
   }
 ];
 
@@ -419,17 +427,17 @@ const themes = [
 // ];
 
 const sponsors = [
-  
+
   {
     tier: "Past Sponsors",  // New principal sponsor tier
     icon: Trophy,  // Using Trophy icon for principal sponsor
     sponsors: [
       { name: "Marktine", logo: `${manktine}` },
-      { name : "vaarta.ai",logo:`${varta}`,color:"bg-black" },
-      { name : "vriti.ai",logo:`${vriti}`,color:"bg-black" },
-      {name: "Microsoft", logo: `${microsoft}`},
-      {name: "Azure Developer Community", logo: `${azure}`},
-      {name: "Reskill", logo: `${reskill}`},
+      { name: "vaarta.ai", logo: `${varta}`, color: "bg-black" },
+      { name: "vriti.ai", logo: `${vriti}`, color: "bg-black" },
+      { name: "Microsoft", logo: `${microsoft}` },
+      { name: "Azure Developer Community", logo: `${azure}` },
+      { name: "Reskill", logo: `${reskill}` },
       { name: 'Geeks For Geeks', logo: `${Gfg}` },
       { name: 'GRRAS Solutions', logo: `${grass}` },
       { name: 'SOFTSERV INC', logo: `${softserv}` },
@@ -439,9 +447,9 @@ const sponsors = [
       { name: 'natural', logo: `${nature}` },
       { name: 'wavvyy', logo: `${wavvy}` },
       { name: 'Cloudy coders', logo: `${cloudy}` },
-      {name: "Celebal", logo: `${celabal}`},
-      {name: "metacube", logo: `${meta}`},
-      {name: "hysn technologies", logo: `${HT}`},
+      { name: "Celebal", logo: `${celabal}` },
+      { name: "metacube", logo: `${meta}` },
+      { name: "hysn technologies", logo: `${HT}` },
 
 
       { name: 'Tech labs ', logo: `${techlab}` },
@@ -451,11 +459,11 @@ const sponsors = [
       { name: "Arya Cipher Club", logo: `${Cipher}` },
       { name: "Arya Hackathon Club", logo: `${Hack}` },
       { name: "Arya Lincom Club", logo: `${Lincom}` }, // Assuming you'll add the manktime logo import
-        // Assuming you'll add the manktime logo import
+      // Assuming you'll add the manktime logo import
     ]
   },
-  
- 
+
+
   {
     tier: "Media Partners",
     icon: Newspaper,
@@ -609,31 +617,31 @@ const sponsors = [
 //     }
 //   ];
 
-  // Create a duplicated array for seamless infinite scrolling
-  // const duplicatedJudges = [...judges, ...judges, ...judges];
+// Create a duplicated array for seamless infinite scrolling
+// const duplicatedJudges = [...judges, ...judges, ...judges];
 
-  // return (
-  //   <section id="judges" className="py-20 px-4 valorant-section">
-  //     <div className="w-full mx-auto overflow-x-hidden">
-  //       <h2 className="section-title text-4xl md:text-5xl font-bold mb-8 text-center">
-  //         Mentors & Judges
-  //       </h2>
+// return (
+//   <section id="judges" className="py-20 px-4 valorant-section">
+//     <div className="w-full mx-auto overflow-x-hidden">
+//       <h2 className="section-title text-4xl md:text-5xl font-bold mb-8 text-center">
+//         Mentors & Judges
+//       </h2>
 
-  //       <div className="relative">
-  //         {/* Slider Container */}
-  //         <div className="relative w-full py-8 overflow-hidden">
-  //           {/* Infinite Loop Slider */}
-  //           <div className="animate-infinite-scroll hover:pause">
-  //             {duplicatedJudges.map((judge, index) => (
-  //               <div
-  //                 key={`${judge.name}-${index}`}
-  //                 className="flex-shrink-0 px-3"
-  //               >
-  //                 <JudgeCard judge={judge} />
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
+//       <div className="relative">
+//         {/* Slider Container */}
+//         <div className="relative w-full py-8 overflow-hidden">
+//           {/* Infinite Loop Slider */}
+//           <div className="animate-infinite-scroll hover:pause">
+//             {duplicatedJudges.map((judge, index) => (
+//               <div
+//                 key={`${judge.name}-${index}`}
+//                 className="flex-shrink-0 px-3"
+//               >
+//                 <JudgeCard judge={judge} />
+//               </div>
+//             ))}
+//           </div>
+//         </div>
 
 //           {/* Gradient Overlays */}
 //           <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#0f1923]/80 to-transparent z-10 pointer-events-none"></div>
@@ -704,12 +712,12 @@ function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </button>
           <div className="mt-12 space-y-4">
             <a href="#about" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>About</a>
-<a href="#timeline" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Timeline</a>
-<a href="#tracks" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Theme</a>
-{/* <a href="#problem-statement" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Problem Statement</a> */}
-<a href="#faqs" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>FAQs</a>
-<a href="#belongings" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Belongings</a>
-<a href="#contact" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Contact</a>
+            <a href="#timeline" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Timeline</a>
+            <a href="#tracks" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Theme</a>
+            {/* <a href="#problem-statement" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Problem Statement</a> */}
+            <a href="#faqs" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>FAQs</a>
+            <a href="#belongings" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Belongings</a>
+            <a href="#contact" className="block text-gray-300 hover:text-[#ffffff] transition-colors" onClick={onClose}>Contact</a>
           </div>
         </div>
       </div>
@@ -720,7 +728,7 @@ function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 function FAQsSection() {
   const [visibleCategory, setVisibleCategory] = useState<keyof typeof faqsData>("general");
   const [showAll, setShowAll] = useState(false);
-  
+
   const allFaqs = Object.values(faqsData).flat();
   const displayedFaqs = showAll ? allFaqs : faqsData[visibleCategory];
 
@@ -728,15 +736,14 @@ function FAQsSection() {
     <section id="faqs" className="py-20 px-4 valorant-section">
       <div className="max-w-6xl mx-auto">
         <h2 className="section-title">FAQS</h2>
-        
+
         {/* Category Selector */}
         <div className="flex flex-wrap gap-4 mb-8 justify-center">
           {Object.keys(faqsData).map((category) => (
             <button
               key={category}
-              className={`px-4 py-2 border border-[#ffffff] text-sm rounded-none transition-all duration-300 hover:bg-[#ffffff] hover:text-black ${
-                visibleCategory === category && !showAll ? 'bg-[#ffffff]' : 'bg-transparent'
-              }`}
+              className={`px-4 py-2 border border-[#ffffff] text-sm rounded-none transition-all duration-300 hover:bg-[#ffffff] hover:text-black ${visibleCategory === category && !showAll ? 'bg-[#ffffff]' : 'bg-transparent'
+                }`}
               onClick={() => {
                 setVisibleCategory(category as keyof typeof faqsData);
                 setShowAll(false);
@@ -746,15 +753,14 @@ function FAQsSection() {
             </button>
           ))}
           <button
-            className={`px-4 py-2 border border-[#ffffff] text-sm rounded-none transition-all duration-300 hover:bg-[#ffffff] hover:text-black ${
-              showAll ? 'bg-[#ffffff]' : 'bg-transparent'
-            }`}
+            className={`px-4 py-2 border border-[#ffffff] text-sm rounded-none transition-all duration-300 hover:bg-[#ffffff] hover:text-black ${showAll ? 'bg-[#ffffff]' : 'bg-transparent'
+              }`}
             onClick={() => setShowAll(!showAll)}
           >
             {showAll ? 'Show Categories' : 'Show All'}
           </button>
         </div>
-        
+
         {/* FAQs List */}
         <div className="space-y-6">
           {displayedFaqs.map((faq, index) => (
@@ -886,10 +892,10 @@ function BelongingsSection() {
     <section id="belongings" className="py-10 px-4 valorant-section">
       <div className="max-w-6xl mx-auto">
         <h2 className="section-title text-center text-lg sm:text-2xl">Essentials</h2>
-        
+
         <div className="theme-card valorant-card-hover p-4 sm:p-8">
           <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 valorant-text-gradient">Required Mission Gear</h3>
-          
+
           {/* Student ID Card - Highlighted Item */}
           <div className="group relative p-4 sm:p-6 mb-4 sm:mb-6 bg-[#1a242d] border border-[#ffffff]/30 hover:border-[#ffffff] transition-all rounded-lg valorant-pulse">
             <div className="flex items-start flex-wrap">
@@ -975,7 +981,7 @@ function BelongingsSection() {
             <p className="text-xs sm:text-sm text-gray-300 flex items-start">
               <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-[#ff4655] mr-3 mt-0.5 flex-shrink-0" />
               <span>
-                <span className="font-bold">Security Protocol:</span> All items subject to security screening. 
+                <span className="font-bold">Security Protocol:</span> All items subject to security screening.
                 Counterfeit IDs will result in immediate disqualification and removal from premises.
               </span>
             </p>
@@ -994,7 +1000,7 @@ function App() {
   useEffect(() => {
     // Background is fully handled by background.css
     // No JavaScript background manipulation needed
-    
+
     // Simulate loading all resources
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -1042,6 +1048,18 @@ function App() {
 
   return (
     <div className="min-h-screen text-gray-100 main-container">
+      {/* Scroll Progress Indicator */}
+      <ScrollProgress />
+
+      {/* Space Background Effects */}
+      <SpaceBackground
+        showStars={true}
+        showNebula={true}
+        showShootingStars={true}
+        showPlanets={true}
+        starCount={200}
+      />
+
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--tech-dark-bg)] bg-opacity-95 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4">
@@ -1059,14 +1077,14 @@ function App() {
               <a href="#contact" className="text-gray-300 hover:text-[var(--tech-electric-blue)] transition-colors">Contact</a>
             </div>
             <div className="flex items-center space-x-4">
-              <button 
+              <button
                 className="valorant-button text-sm group"
                 onClick={() => window.location.href = 'https://bit.ly/4aME7PO'}
               >
                 <Zap className="w-4 h-4 inline-block mr-2 group-hover:valorant-glitch" />
                 <span className="group-hover:valorant-glitch">Register Now</span>
               </button>
-              <button 
+              <button
                 className="md:hidden text-gray-300 hover:text-[var(--tech-electric-blue)] transition-colors"
                 onClick={() => setIsMobileMenuOpen(true)}
               >
@@ -1080,59 +1098,76 @@ function App() {
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
 
       {/* Hero Section */}
-      <section 
-        className="min-h-screen flex items-center justify-center relative overflow-hidden mt-12 lg:mt-20 mb-12 lg:mb-20"
-        style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      <section
+        className="min-h-screen flex items-center justify-center relative overflow-hidden pb-20"
+        style={{
+          backgroundImage: `url(${spaceBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
-        {/* Semi-transparent overlay */}
+        {/* Dark Overlay for readability */}
         <div className="absolute inset-0 bg-black/30"></div>
-        
+
+        {/* Dark Overlay for readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-center items-center text-center px-4 w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[600px]">
-          <div className="mb-6 lg:mb-8 w-[90%] sm:w-[40%] lg:w-[100%] valorant-reveal">
-            <img src={hlogo} alt="Hack Arya Verse 2.0 Logo" className="mx-auto mb-4" />
-          </div>
-          <p className="text-base sm:text-lg lg:text-xl mb-6 lg:mb-8 valorant-text-gradient valorant-reveal leading-relaxed font-medium">
-          PLANT IDEAS, DEFUSE LIMITS
-          </p>
-          <div className="valorant-reveal mb-6 lg:mb-8">
+          <ScaleReveal delay={0.2} className="mb-2 w-[90%] sm:w-[40%] lg:w-[100%]">
+            <img src={hlogo} alt="Hack Arya Verse 2.0 Logo" className="mx-auto drop-shadow-2xl" style={{ filter: 'drop-shadow(0 0 30px rgba(139, 92, 246, 0.5))' }} />
+          </ScaleReveal>
+          <ScrollReveal delay={0.3}>
+            <p className="text-lg sm:text-xl lg:text-2xl mb-4 space-title leading-relaxed font-bold tracking-wider">
+              PLANT IDEAS • DEFUSE LIMITS
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.5} className="mb-4">
             <CountdownTimer />
-          </div>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center valorant-reveal">
-            <button 
-              className="valorant-button group"
-              onClick={() => window.location.href = 'https://bit.ly/4aME7PO'}
-            >
-              <span className="group-hover:valorant-glitch">Register Now</span>
-            </button>
-            <button 
-              className="valorant-button bg-transparent group"
-              onClick={() => window.location.href = 'https://linktr.ee/HackAryaVerse_2.0'}
-            >
-              <span className="group-hover:valorant-glitch">Know More</span>
-            </button>
-            
-          </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.8}>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                className="space-button group"
+                onClick={() => window.location.href = 'https://bit.ly/4aME7PO'}
+              >
+                <span className="relative z-10">🚀 Register Now</span>
+              </button>
+              <button
+                className="valorant-button bg-transparent group"
+                onClick={() => window.location.href = 'https://linktr.ee/HackAryaVerse_2.0'}
+              >
+                <span className="group-hover:valorant-glitch">Know More</span>
+              </button>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="py-20 px-4 valorant-section">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-title">OVERVIEW</h2>
+          <ScrollReveal>
+            <h2 className="section-title space-title">🌟 MISSION BRIEFING</h2>
+          </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="theme-card valorant-card-hover group">
-              <h3 className="text-2xl font-bold mb-4 valorant-text-gradient">The Protocol</h3>
-              <p className="text-gray-300">
-                Hack Arya Verse 2.0 is not just a hackathon; it's an event where talented students come together to solve real-world problems using technology and creativity.
-              </p>
-            </div>
-            <div className="theme-card valorant-card-hover group">
-              <h3 className="text-2xl font-bold mb-4 valorant-text-gradient">The Objective</h3>
-              <p className="text-gray-300">
-                Join hands with mentors, experts, and fellow students to create solutions that can improve technology and make the future better.
-              </p>
-            </div>
+            <ScrollReveal direction="left" delay={0.1}>
+              <TiltCard className="theme-card space-card group h-full">
+                <h3 className="text-2xl font-bold mb-4 space-title">🚀 The Mission</h3>
+                <p className="text-gray-300">
+                  Hack Arya Verse 2.0 is not just a hackathon; it's a cosmic journey where talented students come together to solve universal challenges using technology and creativity.
+                </p>
+              </TiltCard>
+            </ScrollReveal>
+            <ScrollReveal direction="right" delay={0.2}>
+              <TiltCard className="theme-card space-card group h-full">
+                <h3 className="text-2xl font-bold mb-4 space-title">🌌 The Objective</h3>
+                <p className="text-gray-300">
+                  Join hands with mentors, experts, and fellow astronauts to create solutions that can propel humanity forward and build the future.
+                </p>
+              </TiltCard>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -1149,27 +1184,32 @@ function App() {
       {/* Themes Section */}
       <section id="tracks" className="py-20 px-4 valorant-section">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-title">Theme</h2>
+          <ScrollReveal>
+            <h2 className="section-title space-title">🛠️ TRACKS TO BUILD</h2>
+          </ScrollReveal>
           <div className="grid md:grid-cols-3 gap-8">
             {themes.map((theme, index) => {
               const IconComponent = theme.icon;
               return (
-                <div 
-                  key={index} 
-                  className={`theme-card valorant-card-hover group valorant-agent-select ${
-                    selectedTrack === index ? 'valorant-ability' : ''
-                  }`}
-                  onClick={() => setSelectedTrack(index)}
-                >
-                  <div className="flex items-center mb-4">
-                    <IconComponent className={`w-12 h-12 text-[#ff4655] ${
-                      selectedTrack === index ? 'valorant-ultimate' : ''
-                    }`} />
-                    <span className="ml-2 text-sm agent-role-label">{theme.role}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 valorant-text-gradient">{theme.title}</h3>
-                  <p className="text-gray-400">{theme.description}</p>
-                </div>
+                <ScrollReveal key={index} delay={0.1 * index} direction="up">
+                  <TiltCard
+                    className={`theme-card space-card group h-full ${selectedTrack === index ? 'ring-2 ring-[var(--cosmic-cyan)]' : ''
+                      }`}
+                    intensity={8}
+                  >
+                    <div onClick={() => setSelectedTrack(index)} className="cursor-pointer h-full">
+                      <div className="flex items-center mb-4">
+                        <FloatingElement amplitude={5} duration={3 + index * 0.5}>
+                          <IconComponent className={`w-12 h-12 text-[#ff4655] ${selectedTrack === index ? 'valorant-ultimate' : ''
+                            }`} />
+                        </FloatingElement>
+                        <span className="ml-2 text-sm agent-role-label">{theme.role}</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 valorant-text-gradient">{theme.title}</h3>
+                      <p className="text-gray-400">{theme.description}</p>
+                    </div>
+                  </TiltCard>
+                </ScrollReveal>
               );
             })}
           </div>
@@ -1182,106 +1222,111 @@ function App() {
       {/* {/* Night Market Section
       {/* Night Market Section */}
 
-      
+
 
       {/* Past Glimpses Section */}
       <section id="past-glimpses" className="py-20 px-4 valorant-section">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-title">PAST GLIMPSES</h2>
-          <div className="theme-card valorant-card-hover p-8">
-            <div className="relative overflow-hidden">
-              <div className="flex gap-6 animate-scroll-right-to-left" style={{ width: 'fit-content' }}>
-                {/* First set of images */}
-                {[G1, G2, G3, G4, G5, G6, G7].map((image, index) => (
-                  <div
-                    key={`img-${index}`}
-                    className="relative flex-shrink-0 w-[400px] h-[300px] overflow-hidden rounded-lg border border-[#ffffff]/20 hover:border-[#ff4655] transition-all duration-300 group cursor-pointer"
-                  >
-                    <img
-                      src={image}
-                      alt={`Past Glimpse ${index + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.onerror = null;
-                        target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                ))}
-                {/* Duplicate set for seamless loop */}
-                {[G1, G2, G3, G4, G5, G6, G7].map((image, index) => (
-                  <div
-                    key={`img-duplicate-${index}`}
-                    className="relative flex-shrink-0 w-[400px] h-[300px] overflow-hidden rounded-lg border border-[#ffffff]/20 hover:border-[#ff4655] transition-all duration-300 group cursor-pointer"
-                  >
-                    <img
-                      src={image}
-                      alt={`Past Glimpse ${index + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.onerror = null;
-                        target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                ))}
+          <ScrollReveal>
+            <h2 className="section-title space-title">🌍 MISSION MEMORIES</h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <div className="theme-card space-card p-8">
+              <div className="relative overflow-hidden">
+                <div className="flex gap-6 animate-scroll-right-to-left" style={{ width: 'fit-content' }}>
+                  {/* First set of images */}
+                  {[G1, G2, G3, G4, G5, G6, G7].map((image, index) => (
+                    <div
+                      key={`img-${index}`}
+                      className="relative flex-shrink-0 w-[400px] h-[300px] overflow-hidden rounded-lg border border-[#ffffff]/20 hover:border-[#ff4655] transition-all duration-300 group cursor-pointer"
+                    >
+                      <img
+                        src={image}
+                        alt={`Past Glimpse ${index + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.onerror = null;
+                          target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  ))}
+                  {/* Duplicate set for seamless loop */}
+                  {[G1, G2, G3, G4, G5, G6, G7].map((image, index) => (
+                    <div
+                      key={`img-duplicate-${index}`}
+                      className="relative flex-shrink-0 w-[400px] h-[300px] overflow-hidden rounded-lg border border-[#ffffff]/20 hover:border-[#ff4655] transition-all duration-300 group cursor-pointer"
+                    >
+                      <img
+                        src={image}
+                        alt={`Past Glimpse ${index + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.onerror = null;
+                          target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Sponsors Section */}
       <section id="sponsors" className="py-20 px-4 valorant-section">
         <div className="max-w-6xl mx-auto">
-          <h2 className="section-title">Sponsors</h2>
-          
-          
+          <ScrollReveal>
+            <h2 className="section-title space-title">🛰️ MISSION PARTNERS</h2>
+          </ScrollReveal>
+
+
           <div className="space-y-16">
-  {sponsors.map((sponsorTier, index) => {
-    const Icon = sponsorTier.icon;
-    return (
-      <div key={index} className="theme-card valorant-card-hover p-8">
-        <div className="flex items-center justify-center mb-8">
-          <Icon className="w-10 h-10 text-white mr-3" />
-          <h3 className="text-2xl font-bold valorant-text-gradient">
-            {sponsorTier.tier}
-          </h3>
-        </div>
-        
-        <div className="flex justify-center items-center flex-wrap gap-8">
-          {sponsorTier.sponsors.map((sponsor, i) => (
-            <div 
-              key={i} 
-              className={`flex flex-col items-center justify-center p-4 rounded-sm hover:bg-[var(--tech-deep-navy)] transition-colors w-48 h-48`} // Conditional background color
-            >
-              <div className={`w-32 h-32  ${
-                sponsor.color ? sponsor.color : 'bg-white'
-              } flex items-center justify-center mb-2`}> {/* Fixed logo container size */}
-                <img 
-                  src={sponsor.logo} 
-                  alt={sponsor.name} 
-                  className="w-full h-full object-contain p-2 rounded-tl-lg rounded-br-lg border-[#ff4655] border-2"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null;
-                    target.src = 'https://via.placeholder.com/150?text=Sponsor+Logo';
-                  }}
-                />
-              </div>
-              <p className="text-gray-300 text-sm text-center">{sponsor.name}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  })}
-</div>
-          
+            {sponsors.map((sponsorTier, index) => {
+              const Icon = sponsorTier.icon;
+              return (
+                <div key={index} className="theme-card valorant-card-hover p-8">
+                  <div className="flex items-center justify-center mb-8">
+                    <Icon className="w-10 h-10 text-white mr-3" />
+                    <h3 className="text-2xl font-bold valorant-text-gradient">
+                      {sponsorTier.tier}
+                    </h3>
+                  </div>
+
+                  <div className="flex justify-center items-center flex-wrap gap-8">
+                    {sponsorTier.sponsors.map((sponsor, i) => (
+                      <div
+                        key={i}
+                        className={`flex flex-col items-center justify-center p-4 rounded-sm hover:bg-[var(--tech-deep-navy)] transition-colors w-48 h-48`} // Conditional background color
+                      >
+                        <div className={`w-32 h-32  ${sponsor.color ? sponsor.color : 'bg-white'
+                          } flex items-center justify-center mb-2`}> {/* Fixed logo container size */}
+                          <img
+                            src={sponsor.logo}
+                            alt={sponsor.name}
+                            className="w-full h-full object-contain p-2 rounded-tl-lg rounded-br-lg border-[#ff4655] border-2"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.onerror = null;
+                              target.src = 'https://via.placeholder.com/150?text=Sponsor+Logo';
+                            }}
+                          />
+                        </div>
+                        <p className="text-gray-300 text-sm text-center">{sponsor.name}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
           <div className="mt-16 text-center">
             <h3 className="text-xl font-bold valorant-text-gradient mb-6">Want to join our forces?</h3>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -1296,7 +1341,7 @@ function App() {
               </a>
             </div>
           </div>
-       </div>
+        </div>
       </section>
 
       {/* Contact Section */}
@@ -1312,7 +1357,7 @@ function App() {
                   <p className=" font-mono font-semibold text-gray-400">Arya College of Engineering & IT, Jaipur</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <Mail className="flex-shrink-0 w-6 h-6 text-[#ff4655] mt-1" />
                 <div className="ml-4">
@@ -1330,7 +1375,7 @@ function App() {
                   <p className="text-gray-400 font-semibold font-mono">+91 9256954320 Amit Kumar</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <MessageSquare className="flex-shrink-0 w-6 h-6 text-[#ff4655] mt-1" />
                 <div className="ml-4">
@@ -1427,7 +1472,7 @@ function App() {
 //       <div className="max-w-6xl mx-auto">
 //       <h2 className="section-title">Problem Statement</h2>
 //         <h3 className="text-2xl font-bold mb-6 valorant-text-gradient">Build for Bharat – AI Solutions that Serve Every Citizen</h3>
-        
+
 //         <div className="theme-card valorant-card-hover p-8 mb-8">
 //           <h4 className="text-xl font-bold mb-4 text-[#ff4655]">Challenge Overview</h4>
 //           <p className="text-gray-300 mb-6">
@@ -1537,7 +1582,7 @@ function App() {
 //             Design an AI system that generates contextually accurate videos from input text, 
 //             capturing tone, emotion, and background setting to produce relevant output.
 //           </p>
-          
+
 //           <div className="grid md:grid-cols-2 gap-6">
 //             <div>
 //               <h5 className="font-bold mb-2">Example Input:</h5>
