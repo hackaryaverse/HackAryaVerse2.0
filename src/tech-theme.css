@@ -10,24 +10,24 @@
   --tech-navy: #0f1419;
   --tech-deep-navy: #1a1f2e;
   --tech-black: #000000;
-  
+
   /* Primary Neon Colors */
   --tech-electric-blue: #00d4ff;
   --tech-neon-cyan: #00ffff;
   --tech-bright-purple: #8b5cf6;
   --tech-violet: #7c3aed;
-  
+
   /* Accent Colors */
   --tech-neon-orange: #ff6b35;
   --tech-neon-green: #00ff88;
   --tech-hot-pink: #ff0080;
-  
+
   /* Text Colors */
   --tech-white: #ffffff;
   --tech-light-grey: #b4bcd0;
   --tech-muted-grey: #6b7280;
   --tech-dark-grey: #374151;
-  
+
   /* Glow Effects */
   --tech-glow-blue: 0 0 10px var(--tech-electric-blue);
   --tech-glow-cyan: 0 0 10px var(--tech-neon-cyan);
@@ -38,29 +38,29 @@
 
 /* Global Overrides */
 body {
-  background: 
-    linear-gradient(rgba(15, 25, 35, 0.97), rgba(15, 25, 35, 0.97)),
-    url('./assets/Beautiful-Plain-Website-Background.jpg') no-repeat center center fixed;
-  background-size: cover;
   color: var(--tech-white) !important;
   font-family: 'Roboto Mono', monospace !important;
   font-weight: 400;
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
+  background-color: var(--tech-dark-bg);
 }
 
 /* Ensure the main container also has the background */
 /* Removed background styling from min-h-screen to allow background.css to control it */
-.min-h-screen {
-  /* Background styling removed */
-}
+
 
 
 /* Removed Animated Background Pattern */
 
 /* Typography Overrides */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Orbitron', 'Rajdhani', sans-serif !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -131,7 +131,7 @@ input[type="submit"] {
   position: relative !important;
   overflow: hidden !important;
   transition: all 0.3s ease !important;
-  box-shadow: 
+  box-shadow:
     var(--tech-glow-blue),
     inset 0 0 20px rgba(0, 212, 255, 0.1) !important;
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%) !important;
@@ -154,7 +154,7 @@ button::before,
 button:hover,
 .btn:hover {
   transform: translateY(-2px) scale(1.05) !important;
-  box-shadow: 
+  box-shadow:
     var(--tech-glow-cyan),
     0 10px 30px rgba(0, 212, 255, 0.3) !important;
   background: linear-gradient(45deg, var(--tech-neon-cyan), var(--tech-bright-purple)) !important;
@@ -183,7 +183,7 @@ button:active,
 }
 
 /* Icon Colors - Theme colors for general icons */
-.sword-icon, 
+.sword-icon,
 .shield-icon,
 .blocks-icon,
 .target-icon,
@@ -392,7 +392,7 @@ textarea:focus,
 select:focus {
   outline: none !important;
   border-color: var(--tech-electric-blue) !important;
-  box-shadow: 
+  box-shadow:
     var(--tech-glow-blue),
     inset 0 0 20px rgba(0, 212, 255, 0.1) !important;
   background: rgba(15, 20, 25, 0.9) !important;
@@ -409,7 +409,7 @@ textarea::placeholder {
 .card,
 .theme-card,
 [class*="card"] {
-  background: 
+  background:
     linear-gradient(135deg, rgba(15, 20, 25, 0.9) 0%, rgba(26, 31, 46, 0.8) 100%) !important;
   border: 1px solid rgba(0, 212, 255, 0.2) !important;
   backdrop-filter: blur(15px) !important;
@@ -439,7 +439,7 @@ textarea::placeholder {
 .theme-card:hover {
   transform: translateY(-8px) scale(1.02) !important;
   border-color: var(--tech-electric-blue) !important;
-  box-shadow: 
+  box-shadow:
     var(--tech-glow-blue),
     0 20px 40px rgba(0, 212, 255, 0.2) !important;
 }
@@ -483,7 +483,7 @@ header a {
 }
 
 /* Register Now button in navbar - improved visibility */
-.register-button, 
+.register-button,
 .nav-link.register-button,
 header a.register-button {
   color: var(--tech-white) !important;
@@ -562,11 +562,11 @@ section::before {
 }
 
 .countdown-timer .time-unit,
-[class*="countdown"] > div {
-  background: 
+[class*="countdown"]>div {
+  background:
     linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%) !important;
   border: 2px solid var(--tech-electric-blue) !important;
-  box-shadow: 
+  box-shadow:
     var(--tech-glow-blue),
     inset 0 0 20px rgba(0, 212, 255, 0.1) !important;
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%) !important;
@@ -605,7 +605,7 @@ img[class*="logo"]:hover {
 }
 
 /* FAQ Category Boxes - improved text visibility */
-.faq-category, 
+.faq-category,
 [class*="faq-category"],
 [class*="faq"] button,
 [class*="faq"] .category-button {
@@ -669,6 +669,7 @@ img[class*="logo"]:hover {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-50% - 18px));
   }
@@ -684,8 +685,17 @@ img[class*="logo"]:hover {
 }
 
 @keyframes techPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
 }
 
 .loading,
@@ -698,13 +708,13 @@ img[class*="logo"]:hover {
   h1 {
     font-size: 2.5rem !important;
   }
-  
+
   .valorant-button,
   button {
     padding: 10px 20px !important;
     font-size: 0.9rem !important;
   }
-  
+
   .valorant-card-hover:hover,
   .card:hover {
     transform: translateY(-4px) scale(1.01) !important;
@@ -713,6 +723,7 @@ img[class*="logo"]:hover {
 
 /* Footer Titles - Desktop Only Size Reduction */
 @media (min-width: 769px) {
+
   footer h3,
   footer h4,
   footer [class*="title"],
@@ -724,6 +735,7 @@ img[class*="logo"]:hover {
 
 /* Accessibility Improvements */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -754,7 +766,7 @@ img[class*="logo"]:hover {
     background: white !important;
     color: black !important;
   }
-  
+
   .valorant-button,
   button {
     background: transparent !important;

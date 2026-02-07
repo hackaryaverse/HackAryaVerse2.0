@@ -1,13 +1,17 @@
 /* Background styles */
-body {
-  background-color: transparent !important;
-  background-image: url('./assets/background.jpg') !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-attachment: fixed !important;
-  background-size: cover !important;
-  min-height: 100vh !important;
-  position: relative !important;
+.global-fixed-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -50;
+  background-color: transparent;
+  background-image: url('./assets/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  pointer-events: none;
 }
 
 /* Removed dark overlay to show background image directly */
