@@ -1079,7 +1079,7 @@ function App() {
             <div className="flex items-center space-x-4">
               <button
                 className="valorant-button text-sm group"
-                onClick={() => window.location.href = 'https://bit.ly/4aME7PO'}
+                onClick={() => window.location.href = 'https://unstop.com/hackathons/hack-arya-verse-20-arya-college-of-engineering-and-information-technology-aceit-jaipur-rajasthan-1620558'}
               >
                 <Zap className="w-4 h-4 inline-block mr-2 group-hover:valorant-glitch" />
                 <span className="group-hover:valorant-glitch">Register Now</span>
